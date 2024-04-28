@@ -86,7 +86,7 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 });
-
+app.use("/",listingRouter);
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
@@ -103,6 +103,6 @@ app.use((err, req, res, next) => {
 }); 
 
 
-app.listen(8080, () => {
+app.listen(8080 || 6000, () => {
     console.log("server is listening to port 8080");
 });
